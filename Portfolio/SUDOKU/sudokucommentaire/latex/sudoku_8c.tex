@@ -1,0 +1,151 @@
+\hypertarget{sudoku_8c}{}\doxysection{Référence du fichier sudoku.\+c}
+\label{sudoku_8c}\index{sudoku.c@{sudoku.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Graphe des dépendances par inclusion de sudoku.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{sudoku_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{sudoku_8c_abfa179ca04bf5c427a56beb8b26c0272}{NB\+\_\+\+COLONNES}}~9
+\item 
+\#define \mbox{\hyperlink{sudoku_8c_ad8edf09d2d914fdd5eae545ee2bd6ce9}{NB\+\_\+\+LIGNES}}~9
+\begin{DoxyCompactList}\small\item\em programme permettant de jouer au sudoku \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{sudoku_8c_a8b6bae0e57cf0a6c1eb977ba1f983902}{taille}}~3
+\item 
+\#define \mbox{\hyperlink{sudoku_8c_a7b29335add3a553ed85d0e3ace85629c}{TAILLE}}~\mbox{\hyperlink{sudoku_8c_a8b6bae0e57cf0a6c1eb977ba1f983902}{taille}} $\ast$ \mbox{\hyperlink{sudoku_8c_a8b6bae0e57cf0a6c1eb977ba1f983902}{taille}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef int \mbox{\hyperlink{sudoku_8c_a58a70569bb66612ee573529e4e2aa32d}{t\+Grille}}\mbox{[}\mbox{\hyperlink{sudoku_8c_ad8edf09d2d914fdd5eae545ee2bd6ce9}{NB\+\_\+\+LIGNES}}\mbox{]}\mbox{[}\mbox{\hyperlink{sudoku_8c_abfa179ca04bf5c427a56beb8b26c0272}{NB\+\_\+\+COLONNES}}\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{sudoku_8c_aa3bb5abbba7f92aa77acc26909b10616}{afficher\+Grille}} (\mbox{\hyperlink{sudoku_8c_a58a70569bb66612ee573529e4e2aa32d}{t\+Grille}} grille)
+\begin{DoxyCompactList}\small\item\em procérure qui affiche la grille du sudoku au joueur \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{sudoku_8c_a69cd9f7235b48c38f0b77af85ab869b9}{charger\+Grille}} (\mbox{\hyperlink{sudoku_8c_a58a70569bb66612ee573529e4e2aa32d}{t\+Grille}} g)
+\begin{DoxyCompactList}\small\item\em procédure qui permet de charger la grille du sudoku \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sudoku_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em fonction de saisie des valeurs à integrer dans la grille du sudoku \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sudoku_8c_a79aba7cbb896cc87db7d96b73f11c25e}{pleine}} (\mbox{\hyperlink{sudoku_8c_a58a70569bb66612ee573529e4e2aa32d}{t\+Grille}} grille)
+\begin{DoxyCompactList}\small\item\em fonction vérifiant si la grille est pleine \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{sudoku_8c_a6ae51f8a3d9cd6bb8562a5716ba2be83}{possible}} (\mbox{\hyperlink{sudoku_8c_a58a70569bb66612ee573529e4e2aa32d}{t\+Grille}} grille, int nblig, int nbcol, int val)
+\begin{DoxyCompactList}\small\item\em fonction vérifiant la valeur donnée par le joueur est disponible dans la case choisie par le joueur \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Documentation des macros}
+\mbox{\Hypertarget{sudoku_8c_abfa179ca04bf5c427a56beb8b26c0272}\label{sudoku_8c_abfa179ca04bf5c427a56beb8b26c0272}} 
+\index{sudoku.c@{sudoku.c}!NB\_COLONNES@{NB\_COLONNES}}
+\index{NB\_COLONNES@{NB\_COLONNES}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{NB\_COLONNES}{NB\_COLONNES}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+COLONNES~9}
+
+\mbox{\Hypertarget{sudoku_8c_ad8edf09d2d914fdd5eae545ee2bd6ce9}\label{sudoku_8c_ad8edf09d2d914fdd5eae545ee2bd6ce9}} 
+\index{sudoku.c@{sudoku.c}!NB\_LIGNES@{NB\_LIGNES}}
+\index{NB\_LIGNES@{NB\_LIGNES}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{NB\_LIGNES}{NB\_LIGNES}}
+{\footnotesize\ttfamily \#define NB\+\_\+\+LIGNES~9}
+
+
+
+programme permettant de jouer au sudoku 
+
+\begin{DoxyAuthor}{Auteur}
+Timothe PELLEN
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2.\+3
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+1 decembre 2023
+\end{DoxyDate}
+Ce programme permet a l\textquotesingle{}utilisateur de jouer une partie de sudoku sur une grille choisie et il prévient en cas d\textquotesingle{}erreur \mbox{\Hypertarget{sudoku_8c_a8b6bae0e57cf0a6c1eb977ba1f983902}\label{sudoku_8c_a8b6bae0e57cf0a6c1eb977ba1f983902}} 
+\index{sudoku.c@{sudoku.c}!taille@{taille}}
+\index{taille@{taille}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{taille}{taille}}
+{\footnotesize\ttfamily \#define taille~3}
+
+\mbox{\Hypertarget{sudoku_8c_a7b29335add3a553ed85d0e3ace85629c}\label{sudoku_8c_a7b29335add3a553ed85d0e3ace85629c}} 
+\index{sudoku.c@{sudoku.c}!TAILLE@{TAILLE}}
+\index{TAILLE@{TAILLE}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{TAILLE}{TAILLE}}
+{\footnotesize\ttfamily \#define TAILLE~\mbox{\hyperlink{sudoku_8c_a8b6bae0e57cf0a6c1eb977ba1f983902}{taille}} $\ast$ \mbox{\hyperlink{sudoku_8c_a8b6bae0e57cf0a6c1eb977ba1f983902}{taille}}}
+
+
+
+\doxysubsection{Documentation des définitions de type}
+\mbox{\Hypertarget{sudoku_8c_a58a70569bb66612ee573529e4e2aa32d}\label{sudoku_8c_a58a70569bb66612ee573529e4e2aa32d}} 
+\index{sudoku.c@{sudoku.c}!tGrille@{tGrille}}
+\index{tGrille@{tGrille}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{tGrille}{tGrille}}
+{\footnotesize\ttfamily typedef int t\+Grille\mbox{[}\mbox{\hyperlink{sudoku_8c_ad8edf09d2d914fdd5eae545ee2bd6ce9}{NB\+\_\+\+LIGNES}}\mbox{]}\mbox{[}\mbox{\hyperlink{sudoku_8c_abfa179ca04bf5c427a56beb8b26c0272}{NB\+\_\+\+COLONNES}}\mbox{]}}
+
+
+
+\doxysubsection{Documentation des fonctions}
+\mbox{\Hypertarget{sudoku_8c_aa3bb5abbba7f92aa77acc26909b10616}\label{sudoku_8c_aa3bb5abbba7f92aa77acc26909b10616}} 
+\index{sudoku.c@{sudoku.c}!afficherGrille@{afficherGrille}}
+\index{afficherGrille@{afficherGrille}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{afficherGrille()}{afficherGrille()}}
+{\footnotesize\ttfamily void afficher\+Grille (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sudoku_8c_a58a70569bb66612ee573529e4e2aa32d}{t\+Grille}}}]{grille }\end{DoxyParamCaption})}
+
+
+
+procérure qui affiche la grille du sudoku au joueur 
+
+Cette procédure affiche la grille de sudoku selectionner par le joueur affiche la ligne pour avoir les cohordonnées des colonnes
+
+affiche les valeur des case grace a la grille choisie\mbox{\Hypertarget{sudoku_8c_a69cd9f7235b48c38f0b77af85ab869b9}\label{sudoku_8c_a69cd9f7235b48c38f0b77af85ab869b9}} 
+\index{sudoku.c@{sudoku.c}!chargerGrille@{chargerGrille}}
+\index{chargerGrille@{chargerGrille}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{chargerGrille()}{chargerGrille()}}
+{\footnotesize\ttfamily void charger\+Grille (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sudoku_8c_a58a70569bb66612ee573529e4e2aa32d}{t\+Grille}}}]{g }\end{DoxyParamCaption})}
+
+
+
+procédure qui permet de charger la grille du sudoku 
+
+Cette procédure permet de charger la grille selectionner pour le reste du programme. \mbox{\Hypertarget{sudoku_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{sudoku_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{sudoku.c@{sudoku.c}!main@{main}}
+\index{main@{main}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+fonction de saisie des valeurs à integrer dans la grille du sudoku 
+
+Cette fonction est la fonction principale de ce programme il permet de saisir les information necésaire pour jouer au sudoku \mbox{\Hypertarget{sudoku_8c_a79aba7cbb896cc87db7d96b73f11c25e}\label{sudoku_8c_a79aba7cbb896cc87db7d96b73f11c25e}} 
+\index{sudoku.c@{sudoku.c}!pleine@{pleine}}
+\index{pleine@{pleine}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{pleine()}{pleine()}}
+{\footnotesize\ttfamily int pleine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sudoku_8c_a58a70569bb66612ee573529e4e2aa32d}{t\+Grille}}}]{grille }\end{DoxyParamCaption})}
+
+
+
+fonction vérifiant si la grille est pleine 
+
+cette fonction prend en parametre la grille selectionner par le joueur et prend toutes les cohordonnées et vérifie si elle est remplie par un zero ou non et si toute les case sont remplie. \mbox{\Hypertarget{sudoku_8c_a6ae51f8a3d9cd6bb8562a5716ba2be83}\label{sudoku_8c_a6ae51f8a3d9cd6bb8562a5716ba2be83}} 
+\index{sudoku.c@{sudoku.c}!possible@{possible}}
+\index{possible@{possible}!sudoku.c@{sudoku.c}}
+\doxysubsubsection{\texorpdfstring{possible()}{possible()}}
+{\footnotesize\ttfamily int possible (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{sudoku_8c_a58a70569bb66612ee573529e4e2aa32d}{t\+Grille}}}]{grille,  }\item[{int}]{nblig,  }\item[{int}]{nbcol,  }\item[{int}]{val }\end{DoxyParamCaption})}
+
+
+
+fonction vérifiant la valeur donnée par le joueur est disponible dans la case choisie par le joueur 
+
+la fonction vérifie si aucune valeur de la ligne choisie n\textquotesingle{}est la même valeur que celle choisie puis vérifie la même chose pour la colonne et enfin pour la zone correspondante. verifie s\textquotesingle{}il y a la valeur choisie dans la colonne
+
+verifie s\textquotesingle{}il y a la valeur choisie dans la ligne
+
+calcule les cohordonnées de la zonne
+
+verifie s\textquotesingle{}il y a la valeur choisie dans la zone de 3x3
