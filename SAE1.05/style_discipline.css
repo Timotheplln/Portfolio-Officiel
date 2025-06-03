@@ -1,0 +1,201 @@
+
+body h1::before{
+    margin-right: 20px;
+    background-size: contain;
+    content: "";
+    background-image: url(images/Pictogramme_volleyball_purple.png);
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+}
+
+.or {
+    background-color: #EEE196;
+}
+
+.argent {
+    background-color: #C0C0C0;
+}
+
+.bronze {
+    background-color: #CD7F32;
+} 
+
+.Sportifs {
+    background-color: #F7CDD8;
+    margin: 25px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px; 
+    flex-shrink: 4;
+    border-radius: 5px;
+}
+
+.Sportifs > img{
+    height: 300px;
+    width: 200px;
+    margin: 10px;
+    object-fit:cover;
+    object-position: top;
+    display: block;
+    margin: 0 auto;
+    flex-shrink: 1;
+    border-radius: 5px;
+}
+
+.Sportifs > div{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.Sportifs div p{
+    margin: 20px;
+}
+
+.medaille {
+    margin: auto;
+    width:25px;
+    height:25px;
+    border-width: 2px;
+    border-color: #888;
+    border-style:solid;
+}
+
+.drapeau {
+    height: 20px;
+    width: auto;
+    border-radius: 3px;
+}
+
+
+.Sportifs {
+    background-color: #b3e1aa;
+    margin: 25px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px; 
+    flex-shrink: 4;
+    border-radius: 5px;
+}
+
+.Sportifs > img{
+    height: 300px;
+    width: 200px;
+    margin: 10px;
+    object-fit:cover;
+    object-position: top;
+    display: block;
+    margin: 0 auto;
+    flex-shrink: 1;
+    border-radius: 5px;
+}
+
+.Sportifs > div{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.Sportifs div p{
+    margin: 20px;
+}
+
+.medaille {
+    margin: auto;
+    width:25px;
+    height:25px;
+    border-width: 2px;
+    border-color: #888;
+    border-style:solid;
+}
+
+.drapeau {
+    height: 20px;
+    width: auto;
+    border-radius: 3px;
+}
+
+
+table {
+    border: 1px solid;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table tr td,th {
+    border: 1px solid;
+    padding: 3px;
+    text-align: center;
+    width:33%;
+}
+
+article > div > div {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    background-color: #D92D5B;
+    justify-content: space-between;
+    padding: 0px;
+    margin: auto;
+    width: 100%;
+}
+
+.imgDiscipline {
+    width: 70%;
+    padding-right: 15%;
+    padding-left: 15%;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 428px){
+    article > div > div {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .drapeau {
+        flex-wrap: wrap;
+    }
+    
+    .Sportifs {
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 4;
+        border-radius: 5px;
+    }
+
+    .Sportifs > img{
+        height: 300px;
+        width: 250px;
+        margin: 10px;
+        object-fit:cover;
+        object-position: top;
+        display: block;
+        margin: 0 auto;
+        flex-shrink: 1;
+        border-radius: 5px;
+    }
+
+    .Sportifs > div{
+        display: flex;
+        flex-direction: row;
+        align-items:center;
+        justify-content: space-between;
+    }
+    
+    .imgDiscipline{
+        width: 100%;
+        padding: 0;
+    }
+}

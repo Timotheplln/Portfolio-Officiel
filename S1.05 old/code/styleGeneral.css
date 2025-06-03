@@ -1,0 +1,176 @@
+/* importation des polices */
+@font-face {
+    font-family: 'Comic relief';
+    src: url('polices/ComicRelief-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bobby Jones';
+    src:url('polices/bobby_jones_soft-webfont.woff2') format('woff2'),
+        url('polices/bobby_jones_soft-webfont.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+
+/* Changement d'apparence de la barre de scroll latÃ©rale de la page, cette version ne marche que sur firefox et microsoft edge */
+* {
+    scrollbar-width:unset;
+    scrollbar-color: #654385 #B8F048;
+}
+
+/* En revanche, cette version marche sur laplupart des navigateurs, sauf firefox */
+body::-webkit-scrollbar {
+    width: 13px;
+}
+
+body::-webkit-scrollbar-track {
+    background:#B8F048;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color:#654385; 
+    border: 1px solid #B8F048; 
+    border-radius: 10px;
+}
+body::-webkit-scrollbar-thumb:hover{
+    background-color: #412b55;
+}
+
+/* MENU DE NAVIGATION (HEADER) */
+
+header{
+    width: 100%;
+    height: 170px;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+header > img{
+    width: 20%;
+    height: auto;
+}
+header > img:first-child{
+    display: block;
+}
+header > img:last-of-type{
+    display: none;
+}
+header > nav{
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 2%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #B8F048;
+}
+header > nav > a{
+    background-color: #654385 ;
+    width: 20%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 250ms;
+    color: #B8F048;
+    font-size: x-large;
+    text-decoration: none;
+    text-align: center;
+}
+header > nav > a:hover{
+    background-color: #04B2D9;
+    cursor: pointer;
+}
+#menu-phone{
+    display: none;
+}
+/* MENU VERSION PORTABLE */
+@media screen and (max-width: 500px) {
+
+    body > header{
+        flex-wrap: wrap;
+        justify-content: center;
+        height: 100px;
+    }
+    header > img:first-child{
+        display: none;
+    }
+    header > img:last-of-type{
+        height: 100px;
+        width: 250px;
+        min-width: 150px;
+        display: block;
+    }
+    header > nav{
+        display: none;
+    }
+    #menu-phone{
+        display: block;
+        width: 90%;
+    }
+    #menu-phone > div{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #B8F048;
+        padding: 15px 15px;
+        height: 25px;
+    }
+    #menu-phone > div > img:hover{
+        cursor:pointer;
+    }
+    #menu-phone > div > img{
+        transition: 250ms;
+    }
+    #menu-phone > nav{
+        display: none;
+    }
+    #menu-phone > nav > a{
+        width: 100%;
+        border-top: 1px solid black;
+        padding: 10px 15px;
+        background-color: #61308C;
+        color: #B8F048;
+        transition: 0.5s;
+    }
+    #menu-phone > nav > a:hover{
+        background-color:#05BEE8;
+    }
+}
+
+/* CORPS DE LA PAGE */
+
+*{
+    border-radius: 25px;
+}
+
+@media screen and (max-width: 500px) {
+    *{
+        border-radius: 15px;
+    }
+}
+
+body{
+    background-color: #4D2A00;
+    font-family: 'Comic relief', Geneva, Tahoma, sans-serif;
+    cursor:url('images/icones/icone_scooby_snack.png'), auto;
+}
+
+h1{
+    display: block;
+    width: 70%;
+    margin: 20px auto;
+    font-size: 3.8em;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'Bobby Jones', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h2{
+    font-family: 'Bobby Jones', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}

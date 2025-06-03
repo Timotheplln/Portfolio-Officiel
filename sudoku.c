@@ -1,0 +1,248 @@
+/**
+ * \brief programme permettant de jouer au sudoku
+ *
+ * \author Timothe PELLEN
+ *
+ * \version 2.3
+ *
+ * \date 1 decembre 2023
+ * 
+ * Ce programme permet a l'utilisateur de jouer une partie de 
+ * sudoku sur une grille choisie et il prévient en cas d'erreur
+ * 
+*/
+#include <stdlib.h>
+#include <stdio.h>
+
+/**\def taille des ligne et colonne*/
+#define NB_LIGNES 9
+#define NB_COLONNES 9
+/**\def taille d'une zone*/
+#define taille 3
+/**\def taille du sudoku complet*/
+#define TAILLE taille * taille
+
+typedef int tGrille[NB_LIGNES][NB_COLONNES];
+
+int pleine(tGrille grille);
+int possible(tGrille grille, int lig, int col, int val);
+void afficherGrille(tGrille grille);
+void chargerGrille(tGrille g);
+
+/**
+ * 
+ * \fn fonction de saisie des valeurs à integrer dans la grille du sudoku
+ *
+ * \brief Cette fonction est la fonction principale de ce programme
+ * il permet de saisir les information necésaire pour jouer
+ * au sudoku
+ * 
+*/
+
+int main() {
+    tGrille grille1;
+    int numLigne, numColonne, valeur;
+
+    chargerGrille(grille1);
+    while (pleine(grille1) != 0) {
+        afficherGrille(grille1);
+        printf("Indices de la case ? ");
+        scanf("%d", &numLigne);
+        scanf("%d", &numColonne);
+
+        if (grille1[numLigne-1][numColonne-1] != 0) {
+            printf("IMPOSSIBLE, la case n'est pas libre.\n");
+        } else {
+            printf("Valeur à insérer ? ");
+            scanf("%d", &valeur);
+
+            if (possible(grille1, numLigne, numColonne, valeur) == 0) {
+                printf("%d", valeur);
+                grille1[numLigne-1][numColonne-1] = valeur;
+            } else {
+                printf("Erreur : Cette valeur ne peut pas être insérée à cet emplacement.\n");
+            }
+        }
+    }
+
+    printf("Grille pleine, fin de partie.\n");
+    return 0;
+}
+
+/**
+ * 
+ * \fn procédure qui affiche la grille du sudoku au joueur
+ *
+ * \brief Cette procédure affiche la grille de sudoku selectionner
+ * par le joueur
+ * 
+*/
+
+void afficherGrille(tGrille grille) {
+    int l, c, i, j;
+
+    printf("    ");
+    for (j = 1; j <= taille * taille; j++) { /**affiche la ligne pour avoir les cohordonnées des colonnes */
+        printf(" %d ", j);
+        if (j % taille == 0) {
+            printf(" ");
+        }
+    }
+    printf("\n");
+
+    printf("   +");
+    for (i = 0; i < taille; i++)
+    {
+        for (j = 0; j < taille; j++) {
+            printf("---");
+            if ((j + 1) % taille == 0) {
+                printf("+");
+            }
+        }
+    }
+    printf("\n");
+
+    for (l = 0; l < NB_LIGNES; l++) {
+        printf("%d  |", l + 1);
+
+        for (c = 0; c < NB_COLONNES; c++) {
+            if (grille[l][c] != 0) {
+                printf(" %d ", grille[l][c]); /**affiche les valeur des case grace a la grille choisie*/
+            } else {
+                printf(" . ");
+            }
+
+            if ((c + 1) % taille == 0) {
+                printf("|");
+            }
+        }
+
+        printf("\n");
+
+        if ((l + 1) % taille == 0) {
+            printf("   +");
+            for (i = 0; i < taille; i++)
+            {
+                for (j = 0; j < taille; j++) {
+                    printf("---");
+                    if ((j + 1) % taille == 0) {
+                        printf("+");
+                    }
+                }
+            }
+            printf("\n");
+        }
+    }
+}
+
+/**
+ * 
+ * \fn procédure qui permet de charger la grille du sudoku
+ *
+ * \brief Cette procédure permet de charger la grille selectionner
+ * pour le reste du programme.
+ * 
+*/
+
+void chargerGrille(tGrille g) {
+    char nomFichier[30];
+    FILE *f;
+
+    printf("Nom du fichier ? ");
+    scanf("%s", nomFichier);
+    f = fopen(nomFichier, "rb");
+    if (f == NULL) {
+        printf("\nERREUR sur le fichier %s\n", nomFichier);
+    } else {
+        fread(g, sizeof(int), TAILLE * TAILLE, f);
+    }
+    fclose(f);
+}
+
+/**
+ * 
+ * \fn fonction vérifiant la valeur donnée par le joueur est disponible dans la case choisie par le joueur
+ *
+ * \brief la fonction vérifie si aucune valeur de la ligne choisie
+ * n'est la même valeur que celle choisie puis vérifie
+ * la même chose pour la colonne et enfin pour la zone
+ * correspondante.
+ * 
+*/
+
+int possible(tGrille grille, int nblig, int nbcol, int val) {
+    int l, c, i, j, x, y;
+
+    if (nblig <= NB_LIGNES && nblig > 0) {
+        if (nbcol <= NB_COLONNES && nbcol > 0) {
+            for (l = 0; l < NB_LIGNES; l++) {
+                printf("colonne n %d ligne n %d contenu %d \n", nbcol, l , grille[l][nbcol-1]);
+                if (grille[l][nbcol-1] == val) {
+                    printf("Il y a déjà un %d dans cette colonne.\n", val); /**verifie s'il y a la valeur choisie dans la colonne*/
+                    return 1;
+                }
+            }
+
+            for (c = 0; c < NB_COLONNES; c++) {
+                printf("ligne n %d colonne n %d contenu %d \n", nblig, c , grille[nblig-1][c]);
+                if (grille[nblig-1][c] == val) {
+                    printf("Il y a déjà un %d dans cette ligne.\n", val); /**verifie s'il y a la valeur choisie dans la ligne*/
+                    return 1;
+                }
+            }
+
+            if ((nblig % taille) != 0) /**calcule les cohordonnées de la zone*/
+            {
+                x=(nblig/taille) + 1;
+            } else {
+                x=nblig/taille;
+            }
+            if ((nbcol % taille) != 0)
+            {
+                y=(nbcol/taille) + 1;
+            } else {
+                y=nbcol/taille;
+            }
+            
+            
+            
+            for (i = (x-1)*taille ; i < (taille*x); i++) {
+                for (j = (y-1)*taille ; j < (taille*y); j++) {
+                    printf(" % d %d %d \n" , taille, taille*x, taille*y);
+                    printf("x vaut %d y vaut %d region %d  %d contenu %d \n",x ,y , i, j , grille[i][j]);
+                    if (grille[i][j] == val) {
+                        printf("Il y a déjà un %d dans cette région.\n", val); /**verifie s'il y a la valeur choisie dans la zone de 3x3*/
+                        return 1;
+                    }
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
+/**
+ * 
+ * \var fonction vérifiant si la grille est pleine 
+ *
+ * \brief cette fonction prend en parametre la grille selectionner
+ * par le joueur et prend toutes les cohordonnées et vérifie
+ * si elle est remplie par un zero ou non et si toute les case
+ * sont remplie.
+ * 
+*/
+
+int pleine(tGrille grille) {
+    int i, j;
+
+    for (i = 0; i < NB_LIGNES; i++) {
+        for (j = 0; j < NB_COLONNES; j++) {
+            if (grille[i][j] == 0) {
+                return 1;
+            }
+        }
+    }
+
+    return 0;
+}

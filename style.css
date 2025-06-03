@@ -1,0 +1,105 @@
+body {
+    background-color: #222222;
+    color: #eeeeee;
+}
+
+.rond {
+    border-radius: 50%;
+}
+
+a{
+    text-decoration: none;
+}
+
+header a img{
+    height: 4rem;
+}
+
+header a{
+    color: #eeeeee;
+}
+
+header {
+    position: fixed;
+    background-color: #222;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 0.2px solid #ff9100;
+}
+
+h1{
+    font-size: 4em;
+}
+
+h2{
+    font-size: 3em;
+}
+
+h3{
+    font-size: 2em;
+}
+
+.link a {
+    background-color: #222222;
+    border: 0.2px solid #ff9100;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: #ff9100;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: medium;
+    text-align: center;
+    text-decoration: none;
+    cursor: default;
+}
+
+main{
+    margin-top: 4rem;
+}
+
+article {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.bg{
+    background-image: url('wp2694479.jpg');
+    margin: 0;
+    background-size: cover;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    
+}
+
+.sombre{
+    background-color: #0000003f;
+    color: white;
+    height: 100%;
+    padding-top: 139px;
+}
+
+.horizon{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.demo{
+    margin: 10px;
+    margin-top: 15px;
+    width: 30em
+}
+
+.tete{
+    margin: 5px;
+}
+
+.code{
+    background-color: #444;
+    color: #ff9100;
+}
