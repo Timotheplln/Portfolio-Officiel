@@ -62,6 +62,16 @@ main{
     margin-top: 4rem;
 }
 
+main > ul {
+    margin: 20px ;
+    list-style-type: none;
+    padding-top: 30px;
+}
+
+li {
+    margin: 5px;
+}
+
 article {
     margin-top: 30px;
     margin-bottom: 30px;
