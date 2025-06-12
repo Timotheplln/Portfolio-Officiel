@@ -41,6 +41,7 @@ h2{
 
 h3{
     font-size: 2em;
+    text-decoration: underline;
 }
 
 .link a {
@@ -60,12 +61,13 @@ h3{
 
 main{
     margin-top: 4rem;
+    padding-top: 30px;
+    margin-left: 50px;
 }
 
 main > ul {
-    margin: 20px ;
+    margin-top: 15px ;
     list-style-type: none;
-    padding-top: 30px;
 }
 
 li {
